@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="思路 参考了灵佬的题解  针对这种子序列问题，往往都是对每个字符进行「选和不选」的操作，因此可以利用动态规划来进行求解。 先做如下考虑： 令dp[i]表示以s[i]为结尾的子序列的数量，n为字符串s的长度。需要考虑以下两个问题：  当dp[0], dp[1], ..., dp[i-1]都确定下来后，如何确定dp[i]的数量呢？即如何进行状态转移？ 返回的答案并不是简单的dp[n-1]，因为dp[n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nickel 个人首页">
+<meta property="og:url" content="https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/index.html">
+<meta property="og:site_name" content="Nickel 个人首页">
+<meta property="og:description" content="思路 参考了灵佬的题解  针对这种子序列问题，往往都是对每个字符进行「选和不选」的操作，因此可以利用动态规划来进行求解。 先做如下考虑： 令dp[i]表示以s[i]为结尾的子序列的数量，n为字符串s的长度。需要考虑以下两个问题：  当dp[0], dp[1], ..., dp[i-1]都确定下来后，如何确定dp[i]的数量呢？即如何进行状态转移？ 返回的答案并不是简单的dp[n-1]，因为dp[n">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-03T15:28:34.258Z">
+<meta property="article:modified_time" content="2022-10-15T08:04:41.693Z">
+<meta property="article:author" content="Nickel">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Nickel 个人首页</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/probberechts">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2023/04/03/976.%20%E4%B8%89%E8%A7%92%E5%BD%A2%E7%9A%84%E6%9C%80%E5%A4%A7%E5%91%A8%E9%95%BF/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/04/03/927.%20%E4%B8%89%E7%AD%89%E5%88%86/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/&text="><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/&title="><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/&is_video=false&description="><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/&title="><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/&title="><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/&title="><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/&title="><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/&name=&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/&t="><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%B8%80%E5%88%86%E6%9E%90"><span class="toc-number">1.1.</span> <span class="toc-text">问题一分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%BA%8C%E5%88%86%E6%9E%90"><span class="toc-number">1.2.</span> <span class="toc-text">问题二分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Nickel</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-04-03T15:28:34.258Z" itemprop="datePublished">2023-04-03</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><blockquote>
+<p>参考了<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/distinct-subsequences-ii/solution/xi-fen-wen-ti-fu-za-du-you-hua-pythonjav-1ihu/">灵佬的题解</a></p>
+</blockquote>
+<p>针对这种子序列问题，往往都是对每个字符进行「选和不选」的操作，因此可以利用动态规划来进行求解。</p>
+<p>先做如下考虑：</p>
+<p>令<code>dp[i]</code>表示以<code>s[i]</code>为结尾的子序列的数量，<code>n</code>为字符串<code>s</code>的长度。需要考虑以下两个问题：</p>
+<ol>
+<li>当<code>dp[0], dp[1], ..., dp[i-1]</code>都确定下来后，如何确定<code>dp[i]</code>的数量呢？即如何进行状态转移？</li>
+<li>返回的答案并不是简单的<code>dp[n-1]</code>，因为<code>dp[n-1]</code>表示的含义是以字符<code>s[n-1]</code>为结尾的子序列的数量，但是子序列可以不以<code>s[n-1]</code>为结尾。因此，返回值应该如何计算？</li>
+</ol>
+<h2 id="问题一分析"><a href="#问题一分析" class="headerlink" title="问题一分析"></a>问题一分析</h2><ol>
+<li><p>假设<code>s[0], s[1], ..., s[i-1]</code>都不同。</p>
+<p> 那么将<code>s[i]</code>自身作为一个子序列，并将<code>s[i]</code>加到以<code>s[0], s[1], ..., s[i-1]</code>为结尾的子序列后，构成新的一系列新的子序列，此时有：</p>
+</li>
+</ol>
+<p>$$<br>dp[i] = 1 + \sum_{j=0}^{i-1}{dp[j]}<br>\tag{1}\label{1}<br>$$</p>
+<p>​      其中1表示以<code>s[i]</code>单独作为子序列的情况。</p>
+<blockquote>
+<p>这里<code>s[i]</code>是可以与<code>s[0...i-1]</code>中的某<strong>一个</strong>字符相同的，<code>dp[i]</code>计算方式都一样，但是计算最终答案时有所区分，见后文分析问题2的部分。</p>
+</blockquote>
+<ol start="2">
+<li><p>假设<code>s[0], s[1], ..., s[i-1]</code>中存在$s[j_0]=s[j_1]=…=s[j_k]$，且$j_0 &lt; j_1 &lt; … &lt; j_k &lt; i$，那么<code>dp[i]</code>的计算方式有所差别。</p>
+<p> 首先需要理解：$dp[j_1]$所代表的子序列集合一定是包含$dp[j_0]$所代表的子序列集合的。同理$dp[j_k]$所代表的子序列集合一定是包含$dp[j_{k-1}]$所代表的子序列集合的。(区间范围更大，得到的子序列更全)</p>
+<p> 因此当加入<code>s[i]</code>后，对于一系列相同的字符，只需要统计<strong>最后一个字符</strong>对应的子序列数量$dp[j_k]$即可，并累加区间<code>[0,i-1]</code>中不同字符结尾的数量并加1，即可得到<code>dp[i]</code>。由于题目中均为小写字母，为了方便计算最后一个字符对应的子序列数量$dp[j_k]$，可以利用一个新的数组<code>last</code>表示以<code>&#39;a&#39;-&#39;z&#39;</code>(对应下标0-25)结尾的子序列数量。</p>
+<p> 此时，<code>dp[i]</code>的计算公式为：</p>
+</li>
+</ol>
+<p>$$<br>dp[i] = 1 + \sum_{j=0}^{25}last[j]<br>\tag{2}\label{公式2}<br>$$</p>
+<ol start="3">
+<li><p>由分析2可以发现，对于1中的公式，也可以通过公式$\ref{公式2}$来及计算。因此每次迭代字符<code>s[i]</code>时更新<code>last[s[i] - &#39;a&#39;]</code>即可。</p>
+<p> 同时也可以发现，<code>last</code>的含义与<code>dp</code>的含义其实是相同的，有<code>dp[i] = last[s[i] - &#39;a&#39;]</code>。因此可以抛弃<code>dp</code>数组吗，只利用<code>last</code>数组记录。<code>last</code>数组的更新公式为：</p>
+</li>
+</ol>
+<p>$$<br>last[s[i]-‘a’] = 1 + \sum_{j=0}^{25}last[j]<br>\tag{3}\label{公式3}<br>$$</p>
+<h2 id="问题二分析"><a href="#问题二分析" class="headerlink" title="问题二分析"></a>问题二分析</h2><p>现在<code>dp[0...n-1]</code>已经全部计算出来了，但是本题的答案显然不是<code>dp[n-1]</code>。</p>
+<p>但是由于我们计算出了<code>last</code>数组，通过<code>sum(last)</code>其实就可以得到最终的答案。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> MOD = <span class="number">1000000007</span>;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">distinctSubseqII</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">vec</span><span class="params">(<span class="number">26</span>)</span></span>;</span><br><span class="line">        <span class="keyword">auto</span> last = <span class="keyword">new</span> <span class="type">long</span> <span class="type">long</span>[<span class="number">26</span>]&#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span> &amp;c : s)&#123;</span><br><span class="line">            last[c-<span class="string">&#x27;a&#x27;</span>]=<span class="built_in">accumulate</span>(last , last + <span class="number">26</span>,<span class="number">1LL</span>)%MOD;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">accumulate</span>(last , last + <span class="number">26</span>, <span class="number">0LL</span>)%MOD;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>从上述可以发现，每次只变了<code>last[s[i]-&#39;a&#39;]</code>，同时引起<code>sum(last)</code>的变化，因此可以利用一个变量<code>total</code>记录每次<code>sum(last)</code>的值，从而免去每次重新求和的过程。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> MOD = <span class="number">1000000007</span>;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">distinctSubseqII</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> total = <span class="number">0</span>, other = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">auto</span> last = <span class="keyword">new</span> <span class="type">long</span> <span class="type">long</span>[<span class="number">26</span>]&#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span> &amp;c : s)&#123;</span><br><span class="line">            other = (total - last[c-<span class="string">&#x27;a&#x27;</span>] + MOD) % MOD;  <span class="comment">// 以防负数取模</span></span><br><span class="line">            last[c-<span class="string">&#x27;a&#x27;</span>] = (total + <span class="number">1</span>) % MOD;</span><br><span class="line">            total = (other + last[c-<span class="string">&#x27;a&#x27;</span>]) % MOD;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> total;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="http://github.com/probberechts">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%B8%80%E5%88%86%E6%9E%90"><span class="toc-number">1.1.</span> <span class="toc-text">问题一分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%BA%8C%E5%88%86%E6%9E%90"><span class="toc-number">1.2.</span> <span class="toc-text">问题二分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/&text="><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/&title="><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/&is_video=false&description="><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/&title="><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/&title="><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/&title="><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/&title="><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/&name=&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://nickel-nie.github.io/2023/04/03/940.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%20II/&t="><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2023
+    Nickel
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/probberechts">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
