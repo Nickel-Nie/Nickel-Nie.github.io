@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="title:514.自由之路(date:2022-03-02 15:18:34tags:Leetcode  514.自由之路视频游戏“辐射4”中，任务“通向自由”要求玩家到达名为“Freedom Trail Ring”的金属表盘，并使用表盘拼写特定关键词才能开门。 给定一个字符串 ring，表示刻在外环上的编码；给定另一个字符串 key，表示需要拼写的关键词。您需要算出能够拼写关键词中所有字符的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nickel 个人首页">
+<meta property="og:url" content="https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/index.html">
+<meta property="og:site_name" content="Nickel 个人首页">
+<meta property="og:description" content="title:514.自由之路(date:2022-03-02 15:18:34tags:Leetcode  514.自由之路视频游戏“辐射4”中，任务“通向自由”要求玩家到达名为“Freedom Trail Ring”的金属表盘，并使用表盘拼写特定关键词才能开门。 给定一个字符串 ring，表示刻在外环上的编码；给定另一个字符串 key，表示需要拼写的关键词。您需要算出能够拼写关键词中所有字符的">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-04T01:53:06.766Z">
+<meta property="article:modified_time" content="2023-04-04T01:52:25.022Z">
+<meta property="article:author" content="Nickel">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Nickel 个人首页</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/probberechts">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2023/04/04/659.%20%E5%88%86%E5%89%B2%E6%95%B0%E7%BB%84%E4%B8%BA%E8%BF%9E%E7%BB%AD%E5%AD%90%E5%BA%8F%E5%88%97_/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/04/04/463.%E5%B2%9B%E5%B1%BF%E7%9A%84%E5%91%A8%E9%95%BF/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/&text="><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/&title="><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/&is_video=false&description="><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/&title="><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/&title="><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/&title="><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/&title="><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/&name=&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/&t="><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#514-%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF"><span class="toc-number">1.</span> <span class="toc-text">514.自由之路</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Nickel</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-04-04T01:53:06.766Z" itemprop="datePublished">2023-04-04</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <hr>
+<p>title:514.自由之路(<br>date:2022-03-02 15:18:34<br>tags:Leetcode</p>
+<hr>
+<h1 id="514-自由之路"><a href="#514-自由之路" class="headerlink" title="514.自由之路"></a>514.自由之路</h1><p>视频游戏“辐射4”中，任务“通向自由”要求玩家到达名为“Freedom Trail Ring”的金属表盘，并使用表盘拼写特定关键词才能开门。</p>
+<p>给定一个字符串 <strong>ring</strong>，表示刻在外环上的编码；给定另一个字符串 <strong>key</strong>，表示需要拼写的关键词。您需要算出能够拼写关键词中所有字符的<strong>最少</strong>步数。</p>
+<p>最初，<strong>ring</strong> 的第一个字符与12:00方向对齐。您需要顺时针或逆时针旋转 ring 以使 <strong>key</strong> 的一个字符在 12:00 方向对齐，然后按下中心按钮，以此逐个拼写完 <strong>key</strong> 中的所有字符。</p>
+<p>旋转 <strong>ring</strong> 拼出 key 字符 <strong><code>key[i]</code></strong> 的阶段中：</p>
+<ol>
+<li>您可以将 <strong>ring</strong> 顺时针或逆时针旋转<strong>一个位置</strong>，计为1步。旋转的最终目的是将字符串 <strong>ring</strong> 的一个字符与 12:00 方向对齐，并且这个字符必须等于字符**<code>key[i]</code>**;</li>
+<li>如果字符 <strong>key[i]</strong> 已经对齐到12:00方向，您需要按下中心按钮进行拼写，这也将算作 <strong>1 步</strong>。按完之后，您可以开始拼写 <strong>key</strong> 的下一个字符（下一阶段）,直至完成所有拼写。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入: ring = &quot;godding&quot;, key = &quot;gd&quot;</span><br><span class="line">输出: 4</span><br><span class="line">解释:</span><br><span class="line"> 对于 key 的第一个字符 &#x27;g&#x27;，已经在正确的位置, 我们只需要1步来拼写这个字符。 </span><br><span class="line"> 对于 key 的第二个字符 &#x27;d&#x27;，我们需要逆时针旋转 ring &quot;godding&quot; 2步使它变成 &quot;ddinggo&quot;。</span><br><span class="line"> 当然, 我们还需要1步进行拼写。</span><br><span class="line"> 因此最终的输出是 4。</span><br></pre></td></tr></table></figure>
+
+
+
+<p>观察可以发现，通过每一步找最小距离的贪心方法是不正确的，如下例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ring = &quot;acbdbxxxxx&quot;, key = &quot;abd&quot;;</span><br><span class="line">贪心方法得到的值是:1+2+5</span><br><span class="line">而正确答案为：1+3+2</span><br></pre></td></tr></table></figure>
+
+<p>所以应该考虑动态规划方法。当有两个字符串的时候，第一步想到的就应该是二维的动态规划，然后再去考虑如何优化。</p>
+<p><strong>方法：动态规划</strong></p>
+<p>定义 $\textit{dp}[i][j]$表示从前往后拼写出  $\textit{key}$ 的第 $i$ 个字符，$ring$的第$j$个字符与12:00方向对齐的最少步数（下标均从0开始）。</p>
+<p>对于 $\textit{key}$ 的第 $i$ 个字符，需要考虑计算的 $\textit{ring}$ 的第 $j$ 个字符只有 $\textit{key}[i]$ 在 $\textit{ring}$ 中出现的下标集合。我们对每个字符维护一个位置数组 $\textit{pos}[i]$，表示字符 $i$ 在 $\textit{ring}$ 中出现的位置集合，用来加速计算转移的过程。</p>
+<p>对于状态$dp[i][j]$，需要枚举上一次与12:00方向对齐的位置$k$，因此可以列出以下转移方程：<br>$$<br>dp[i][j]=\min_<br>{k∈pos[key[i−1]]}<br> \lbrace dp[i−1][k]+min \lbrace abs(j−k),n−abs(j−k) \rbrace +1 \rbrace<br>$$<br>其中 $\min{\text{abs}(j-k),n-\text{abs}(j-k)} + 1$ 表示在当前第 $k$ 个字符与 12:00 方向对齐时第 $j$ 个字符旋转到 12:00 方向并按下拼写的最少步数。</p>
+<p>最后答案即为<br>$$<br>\min_{i\in[0,n-1]}{\textit{dp}[m-1][i]}<br>$$<br>考虑到每次转移状态 $\textit{dp}[i][]$ 只会从 $\textit{dp}[i-1][]$ 转移过来，因此还可以利用滚动数组优化第一维的空间复杂度，这里没有实现。(两个字符是不同的，所以值不会发生重叠；如果两个字符相同那么也没有必要去移动，因为不管是否移动答案都是相同的。)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findRotateSteps</span><span class="params">(string ring, string key)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> m = key.<span class="built_in">size</span>(), n = ring.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//维护一个下标数组方便查找(ring中的下标集合)</span></span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; pos[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;n; i++) &#123;</span><br><span class="line">            pos[ring[i] - <span class="string">&#x27;a&#x27;</span>].<span class="built_in">emplace_back</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(m, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n, INT_MAX));</span><br><span class="line">        <span class="comment">//第一行的初始化</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;i: pos[key[<span class="number">0</span>]-<span class="string">&#x27;a&#x27;</span>]) &#123;</span><br><span class="line">            dp[<span class="number">0</span>][i] = <span class="built_in">min</span>(i, n-i) + <span class="number">1</span>;   <span class="comment">//注意有两个方向</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> &amp;j: pos[key[i]-<span class="string">&#x27;a&#x27;</span>]) &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> &amp;k: pos[key[i<span class="number">-1</span>]-<span class="string">&#x27;a&#x27;</span>]) &#123;</span><br><span class="line">                    dp[i][j] = <span class="built_in">min</span>(dp[i][j], dp[i<span class="number">-1</span>][k] + <span class="built_in">min</span>(<span class="built_in">abs</span>(j-k), n-<span class="built_in">abs</span>(j-k)) + <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> *<span class="built_in">min_element</span>(dp[m<span class="number">-1</span>].<span class="built_in">begin</span>(), dp[m<span class="number">-1</span>].<span class="built_in">end</span>());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="http://github.com/probberechts">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#514-%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF"><span class="toc-number">1.</span> <span class="toc-text">514.自由之路</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/&text="><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/&title="><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/&is_video=false&description="><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/&title="><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/&title="><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/&title="><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/&title="><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/&name=&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://nickel-nie.github.io/2023/04/04/514.%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF(/&t="><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2023
+    Nickel
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/probberechts">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
